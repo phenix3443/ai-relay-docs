@@ -1,0 +1,95 @@
+/* 色值取自 Sub2API v0.2.15 frontend/tailwind.config.js 与 src/style.css，和控制台保持一致 */
+
+:root {
+  --vp-c-brand-1: #0d9488;
+  --vp-c-brand-2: #0f766e;
+  --vp-c-brand-3: #0d9488;
+  --vp-c-brand-soft: rgba(20, 184, 166, 0.14);
+
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f9fafb;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f3f4f6;
+  --vp-c-border: #e5e7eb;
+  --vp-c-divider: #e5e7eb;
+  --vp-c-gutter: #f3f4f6;
+
+  --vp-font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --vp-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --vp-button-brand-bg: #0d9488;
+  --vp-button-brand-hover-bg: #0f766e;
+  --vp-button-brand-active-bg: #115e59;
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+}
+
+.dark {
+  --vp-c-brand-1: #2dd4bf;
+  --vp-c-brand-2: #14b8a6;
+  --vp-c-brand-3: #0d9488;
+  --vp-c-brand-soft: rgba(19, 78, 74, 0.35);
+
+  --vp-c-bg: #0f172a;
+  --vp-c-bg-alt: #020617;
+  --vp-c-bg-elv: #1e293b;
+  --vp-c-bg-soft: #1e293b;
+  --vp-c-border: #334155;
+  --vp-c-divider: #1e293b;
+  --vp-c-gutter: #020617;
+
+  --vp-c-text-1: #f3f4f6;
+  --vp-c-text-2: #94a3b8;
+  --vp-c-text-3: #64748b;
+
+  --vp-button-brand-bg: #0d9488;
+  --vp-button-brand-hover-bg: #14b8a6;
+  --vp-button-brand-active-bg: #0f766e;
+}
+
+::selection {
+  background: rgba(20, 184, 166, 0.2);
+}
+
+/* 控制台按钮是 rounded-xl + 主色渐变，卡片是 rounded-2xl */
+.VPButton {
+  border-radius: 12px !important;
+}
+
+.VPButton.brand {
+  background-image: linear-gradient(to right, #14b8a6, #0d9488);
+}
+
+.VPButton.brand:hover {
+  background-image: linear-gradient(to right, #0d9488, #0f766e);
+}
+
+.VPFeature {
+  border-radius: 16px !important;
+}
+
+.dark .VPFeature {
+  background-color: rgba(30, 41, 59, 0.5);
+  border-color: rgba(51, 65, 85, 0.5);
+}
+
+/* 内嵌在控制台 iframe 里：控制台已有顶栏，藏掉 VitePress 的导航栏。
+   VitePress 自带的 .hide-nav 由 VPNav 按 frontmatter 开关，不能借用，规则照它抄一份 */
+.embedded {
+  --vp-nav-height: 0px;
+}
+
+.embedded .VPSidebar {
+  --vp-nav-height: 22px;
+}
+
+.embedded .VPNav {
+  display: none;
+}
+
+/* 已经在控制台里了，hero 上的「打开控制台」多余 */
+.embedded .VPHero .action:has(a[href^='http']) {
+  display: none;
+}

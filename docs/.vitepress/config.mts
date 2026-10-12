@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { embedScript } from './embed'
 
 const console_ = 'https://relay.panghuli.tech'
 
@@ -10,6 +11,13 @@ export default defineConfig({
   base: '/docs/',
   cleanUrls: true,
   lastUpdated: true,
+  // 控制台常用深色；内嵌时由 iframe 的 theme 参数覆盖
+  appearance: 'dark',
+  head: [
+    // iframe 首个请求的 URL 带用户 token，别让它经 Referer 进到任何访问日志
+    ['meta', { name: 'referrer', content: 'strict-origin' }],
+    ['script', {}, embedScript],
+  ],
   themeConfig: {
     nav: [
       { text: '快速开始', link: '/guide/quickstart' },
