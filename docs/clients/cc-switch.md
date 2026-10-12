@@ -18,6 +18,10 @@
 
 导入时会同时开启 CC Switch 的用量查询，在服务商卡片上显示剩余额度。
 
+## 开了本地代理后请求报 401
+
+服务商的鉴权方式要选 **Bearer**，不要选 `x-api-key`，原因见[常见问题](../guide/faq#用-cc-switch-code-switch-的本地代理时报-401「invalid-api-key」)。
+
 ## 提示「CC-Switch 未安装」
 
 说明系统没找到 `ccswitch://` 的处理程序。确认 CC Switch 已安装并打开过一次；仍不行就改用「使用密钥」手动配置，见 [Claude Code](./claude-code) 或 [Codex CLI](./codex)。
