@@ -12,7 +12,7 @@
 | OpenAI | Codex Plus | ChatGPT Plus | 1× |
 | OpenAI | Codex Pro | ChatGPT Pro | 5× |
 
-价格、有效期、每档的额度以控制台「充值/订阅」页显示为准。
+价格、有效期、每档的额度以控制台「购买订阅」页显示为准。
 
 ### 额度怎么算
 
