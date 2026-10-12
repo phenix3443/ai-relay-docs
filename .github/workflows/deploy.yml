@@ -1,18 +1,13 @@
-name: Deploy docs
+name: Build docs
 
+# 构建产物推到 dist 分支；集群里的 nginx 按 ai-relay 仓库清单里钉住的 dist 提交拉取
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  contents: write
 
 jobs:
   build:
@@ -27,17 +22,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: peaceiris/actions-gh-pages@v4
         with:
-          path: docs/.vitepress/dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: dist
+          publish_dir: docs/.vitepress/dist
+          force_orphan: true

@@ -6,8 +6,8 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'ai-relay',
   description: 'ai-relay 使用文档：注册、订阅、创建密钥、接入 Claude Code 与 Codex',
-  // GitHub Pages 项目站点挂在仓库名路径下
-  base: '/ai-relay-docs/',
+  // 由隧道按路径转到集群里的 nginx，挂在网关域名的 /docs 下
+  base: '/docs/',
   cleanUrls: true,
   lastUpdated: true,
   themeConfig: {
