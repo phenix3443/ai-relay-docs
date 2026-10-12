@@ -1,0 +1,17 @@
+{
+  "name": "ai-relay-docs",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "type": "module",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  },
+  "private": true,
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}
